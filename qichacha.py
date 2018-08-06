@@ -68,4 +68,4 @@ c=read_xlsx('new.xlsx')
 for i in c:
     key=i[0].value
     laoqu(key)
-    time.sleep(30)
+    time.sleep(20)
