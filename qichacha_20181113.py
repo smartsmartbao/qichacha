@@ -41,7 +41,7 @@ def laoqu(key):
                     sshy=detail_soup.select('#Cominfo table:nth-of-type(2) tr:nth-of-type(5) td:nth-of-type(4)')[0].text.strip('\n                ')
                     ssdq=detail_soup.select('#Cominfo table:nth-of-type(2) tr:nth-of-type(7) td:nth-of-type(2)')[0].text.strip('\n                ')
                     cbrs=detail_soup.select('#Cominfo table:nth-of-type(2) tr:nth-of-type(8) td:nth-of-type(4)')[0].text.strip('\n                ')
-                    qydz=detail_soup.select('#Cominfo table:nth-of-type(2) tr:nth-of-type(10) td:nth-of-type(2)')[0].text.strip('\n                ')
+                    qydz=detail_soup.select('#Cominfo table:nth-of-type(2) tr:nth-of-type(10) td:nth-of-type(2)')[0].text.strip('\n                ').strip('\n                 查看地图  附近公司')
                     branch=detail_soup.select('#Subcom .ntable tr')
                     fz_list = []
                     try:
