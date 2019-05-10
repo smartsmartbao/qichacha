@@ -6,7 +6,7 @@ import math
 import time
 GAODE_API = 'http://restapi.amap.com/v3/geocode/geo?address={}&output=json&key=2df43ae9994dfea57373568e7aca7881'
 column = ['address', 'lng', 'lat']
-path = '20171010.xlsx'
+path = 'address1.xlsx'
 FLAG = 1
 #顺序省市区、citycode、adcode，gaode_lng,gaode_lat,wgs_lng,wsg_lat
 class district(object):
@@ -204,17 +204,21 @@ class wsg(object):
         zipped=zip(zuobiao[0],zuobiao[1])
         row=1
         for i,j in zipped:
-            b=[]
-            slng=float(i[0].value)
-            slat=float(j[0].value)
-            lng,lat=self.gcj02towgs84(slng,slat)
-            b.append(lng)
-            b.append(lat)
-            co=self.column+1
-            for k in range(len(b)):
-                self.write_excel(self.path,row,co,b[k])
-                co+=1
-            row+=1
+            try:
+                b=[]
+                slng=float(i[0].value)
+                slat=float(j[0].value)
+                lng,lat=self.gcj02towgs84(slng,slat)
+                b.append(lng)
+                b.append(lat)
+                co=self.column+1
+                for k in range(len(b)):
+                    self.write_excel(self.path,row,co,b[k])
+                    co+=1
+                row+=1
+            except Exception as e:
+                print(e)
+                row+=1
     
 
 
